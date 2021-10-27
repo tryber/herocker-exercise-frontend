@@ -7,7 +7,9 @@ import { createClient } from '@supabase/supabase-js';
 require('dotenv').config();
 
 const supabaseUrl = 'https://kvwqfvtvbpqqbehbutsm.supabase.co';
-const supabaseKey = process.env.REACT_APP_SUPABASEKEY;
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.'
++ 'eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzNTI2MDUzOSwiZXhwI'
++ 'joxOTUwODM2NTM5fQ.hdT_MDknZsGWbUK6FFPLmpJAh0JefSik7pnL3CO9QK8';
 console.log(process.env.REACT_APP_SUPABASEKEY);
 const supabase = createClient(supabaseUrl, supabaseKey);
 
