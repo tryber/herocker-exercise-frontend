@@ -24,7 +24,7 @@ function App() {
       .then((response) => { setData(response.data); setLoading(false); });
   }, []);
 
-  if (loading) return <h1>loading...</h1>;
+  if (loading) return <h1>loading....</h1>;
 
   return (
     <table>
