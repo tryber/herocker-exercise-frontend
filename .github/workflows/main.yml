@@ -1,0 +1,21 @@
+on: [push, pull_request]
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: stefanoeb/eslint-action@1.0.2
+  live_preview_job:
+    runs-on: ubuntu-latest
+    name: A job to test live preview
+    steps:
+    - uses: actions/checkout@master
+      name: Checkout
+    - name: My Live Preview Action for port 5000
+      uses: sharadcodes/live-preview-action@v1.0
+      with:
+        port: 5000
+        minutes: 1
+        command: "python3 -m http.server 5000" 
+        discord_webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}

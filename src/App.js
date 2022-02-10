@@ -2,19 +2,31 @@ import './App.css';
 
 import React, { useEffect, useState } from 'react';
 
-const API_ENDPOINT = 'http://localhost:3000/users';
+import { createClient } from '@supabase/supabase-js';
+
+require('dotenv').config();
+
+const supabaseUrl = 'https://kvwqfvtvbpqqbehbutsm.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.'
++ 'eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzNTI2MDUzOSwiZXhwI'
++ 'joxOTUwODM2NTM5fQ.hdT_MDknZsGWbUK6FFPLmpJAh0JefSik7pnL3CO9QK8';
+console.log(process.env.REACT_APP_SUPABASEKEY);
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+// const API_ENDPOINT = 'http://localhost:3000/users';
 
 function App() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(API_ENDPOINT)
-      .then((res) => res.json())
-      .then((parsedData) => { setData(parsedData); setLoading(false); });
+    supabase
+      .from('Users')
+      .select()
+      .then((response) => { setData(response.data); setLoading(false); });
   }, []);
 
-  if (loading) return <h1>loading</h1>;
+  if (loading) return <h1>loading....</h1>;
 
   return (
     <table>
