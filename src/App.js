@@ -2,7 +2,7 @@ import './App.css';
 
 import React, { useEffect, useState } from 'react';
 
-const API_ENDPOINT = 'https://backend-exercise-trybe.herokuapp.com/users';
+const API_ENDPOINT = 'http://localhost:3000/users';
 
 function App() {
   const [data, setData] = useState([]);
