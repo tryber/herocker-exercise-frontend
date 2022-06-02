@@ -7,7 +7,7 @@ const API_ENDPOINT = 'http://localhost:3000/users';
 function App() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  // Eu estive aqui
   useEffect(() => {
     fetch(API_ENDPOINT)
       .then((res) => res.json())
