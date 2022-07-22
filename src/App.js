@@ -2,7 +2,7 @@ import './App.css';
 
 import React, { useEffect, useState } from 'react';
 
-const API_ENDPOINT = 'http://localhost:3000/users';
+const API_ENDPOINT = 'https://anna-ligia-miguel-backend.herokuapp.com/users';
 
 function App() {
   const [data, setData] = useState([]);
@@ -14,7 +14,7 @@ function App() {
       .then((parsedData) => { setData(parsedData); setLoading(false); });
   }, []);
 
-  if (loading) return <h1>loading</h1>;
+  if (loading) return <h1>loading!!!</h1>;
 
   return (
     <table>
