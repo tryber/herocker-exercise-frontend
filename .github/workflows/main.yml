@@ -1,0 +1,14 @@
+  deploy-preview:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Instala dependências e executa a aplicação
+        run: |
+          npm install
+          npm run build
+      - name: Gera preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          preview-branch: gh-pages
+          source-dir: ./build/
